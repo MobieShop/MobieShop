@@ -1,0 +1,196 @@
+/* ===== BODY ===== */
+body {
+    text-align: center;
+    line-height: 1.5;
+    background-color: rgba(239, 223, 191, 0.36);
+    color: orangered;
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+}
+
+/* ===== KHUNG THÔNG TIN ===== */
+.information {
+    text-align: left;
+    width: 300px;
+    border: 1px solid orangered;
+    border-radius: 8px;
+    color: black;
+    padding: 20px;
+    font-size: medium;
+    background-color: #c19c7b75;
+    margin: 20px auto;
+}
+
+.information span {
+    font-weight: bold;
+}
+
+/* ===== BUTTON ===== */
+button {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 12px 32px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin: 10px;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+/* ===== POPUP ===== */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0,0,0,0.5);
+    z-index: 999;
+}
+
+.popup.active {
+    display: flex;
+}
+
+/* ===== NỘI DUNG POPUP ===== */
+.popup-content {
+    background: white;
+    padding: 30px 40px;
+    border-radius: 12px;
+    width: 400px;
+    max-width: 90%;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    text-align: center;
+    position: relative;
+}
+
+.popup-content h3 {
+    margin-bottom: 20px;
+    color: orangered;
+}
+
+/* ===== LABEL ===== */
+.popup-content label {
+    display: block;
+    margin-top: 12px;
+    font-weight: bold;
+    text-align: left;
+}
+
+/* ===== INPUT / SELECT ===== */
+.popup-content input,
+.popup-content select {
+    width: 80%;
+    display: block;
+    margin: 6px auto 15px auto;
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.popup-content input:focus,
+.popup-content select:focus {
+    border-color: #ec480c;
+    box-shadow: 0 0 4px rgba(236,72,12,0.5);
+}
+
+/* ===== RADIO - Giới tính (đẹp, thẳng hàng) ===== */
+.gender-row {
+  width: 80%;
+  margin: 10px auto 15px auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 25px;
+}
+
+.gender-label {
+  font-weight: bold;
+  color: orangered;
+  text-align: left;
+  min-width: 90px;
+}
+
+.gender-options {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+}
+
+.gender-options label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.gender-options input[type="radio"] {
+  accent-color: orangered;
+  width: 16px;
+  height: 16px;
+  margin: 0;
+}
+
+.gender-options span {
+  color: orangered;
+  font-weight: 600;
+}
+
+
+/* ===== NÚT LƯU / HỦY ===== */
+.popup-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.popup-buttons button {
+    flex: 1;
+    max-width: 120px;
+    padding: 10px 0;
+    border-radius: 20px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.popup-buttons button:first-child {
+    background-color: #ec480c;
+    color: #fff;
+}
+
+.popup-buttons button:first-child:hover {
+    background-color: #cf3d09;
+}
+
+.popup-buttons button.cancel-btn {
+    background-color: #6c757d;
+    color: #fff;
+}
+
+.popup-buttons button.cancel-btn:hover {
+    background-color: #5a6268;
+}
+
+/* ===== HIỆU ỨNG POPUP ===== */
+@keyframes fadeIn {
+    from {opacity:0;} to {opacity:1;}
+}
+
+@keyframes scaleIn {
+    from {transform: scale(0.9); opacity:0.7;} 
+    to {transform: scale(1); opacity:1;}
+}

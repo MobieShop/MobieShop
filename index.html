@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Mobie Shop</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/register.css">
+</head>
+
+<body>
+    <!-- Popup login -->
+<div id="login-popup" class="popup">
+  <div class="popup-content">
+    <span class="close-btn" onclick="closeLoginPopup()">&times;</span>
+    <h2>Đăng Nhập</h2>
+
+    <label for="username-login">Tên đăng nhập:</label>
+    <input type="text" id="username-login" placeholder="Nhập tên đăng nhập">
+
+    <label for="password-login">Mật khẩu:</label>
+    <input type="password" id="password-login" placeholder="Nhập mật khẩu">
+
+    <button class="btn-login" onclick="onLoginHandler()">Đăng Nhập</button>
+    <p>Chưa có tài khoản?</p>
+    <button class="btn-register" onclick="openRegisterPopup()">Đăng Ký</button>
+  </div>
+</div>
+
+   <!-- 🔽 POPUP ĐĂNG KÝ -->
+<div id="register-popup" class="popup">
+  <div class="popup-content">
+    <span class="close-btn" onclick="closeRegisterPopup()">&times;</span>
+    <h2>Đăng Ký</h2>
+
+    <div class="main-content">
+      <div class="information-input">
+        <label for="username">Tên đăng nhập:</label>
+        <input type="text" name="username" id="username">
+
+        <label for="password">Mật khẩu:</label>
+        <input type="password" name="password" id="password">
+
+        <label for="password-confirm">Xác nhận mật khẩu:</label>
+        <input type="password" name="password-confirm" id="password-confirm">
+
+        <label for="fullname">Họ và tên:</label>
+        <input type="text" name="fullname" id="fullname">
+
+        <label>Giới tính:</label>
+        <label><input type="radio" name="gender" value="male"> Nam</label>
+        <label><input type="radio" name="gender" value="female"> Nữ</label>
+
+        <label for="dob">Ngày sinh:</label>
+        <input type="date" name="dob" id="dob">
+
+        <label for="address">Địa chỉ:</label>
+        <select id="city" name="city">
+          <option value="danang">Đà Nẵng</option>
+          <option value="hanoi">Hà Nội</option>
+          <option value="hcm">TP Hồ Chí Minh</option>
+          <option value="hue">Huế</option>
+          <option value="haiphong">Hải Phòng</option>
+          <option value="cantho">Cần Thơ</option>
+        </select>
+
+        <label for="email">Email:</label>
+        <input type="text" name="email" id="email">
+
+        <label for="phone">Số điện thoại:</label>
+        <input type="text" name="phone" id="phone">
+      </div>
+
+      <button class="btn-confirm" onclick="confirmRegister()">Xác Nhận</button>
+      <button class="btn-goback" onclick="goBackToLoginPage()">Quay Lại</button>
+    </div>
+  </div>
+</div>
+    <header>
+
+        <img class="header-logo" src="image/Mobie.png" alt="">
+
+        <div class="search-bar">
+            <i class="fas fa-search"></i>
+            <input type="search" id="search-box" placeholder="Nhập tên sản phẩm cần tìm">
+            <div class="search-dropdown" id="search-dropdown"></div>
+        </div>
+
+        <div class="user-info">
+    <button class="btn-user" onclick="onUserButton()">
+        <img id="login-icon" src="image/user.png" alt="">
+    </button>
+    <span id="username-display" class="username-display"></span>
+</div>
+
+
+        <button class="btn-cart" onclick="openCart()">
+            <img src="image/shopping-cart.png">
+            <span id="cart-count">(0)</span>
+        </button>
+
+    </header>
+    <nav class="vmenu">
+        <ul>
+            <li><a href="index.html">TRANG CHỦ</a></li>
+            <li><a href="gioithieu.html">GIỚI THIỆU</a></li>
+            <li><a href="baohanh.html">BẢO HÀNH</a></li>
+            <li><a href="lienhe.html">LIÊN HỆ</a></li>
+        </ul>
+    </nav>
+    <div class="slider" role="banner" aria-label="Banner quảng cáo">
+        <div class="slides">
+            <img src="image/banner.jpg" alt="Banner Relax Cellphone 1" loading="lazy" class="slide active">
+            <img src="image/banner-2.png" alt="Banner Relax Cellphone 2" loading="lazy" class="slide">
+        </div>
+        <button class="slider-btn prev-btn" onclick="changeSlide(-1)" aria-label="Banner trước">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="slider-btn next-btn" onclick="changeSlide(1)" aria-label="Banner tiếp theo">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+        <div class="slider-dots">
+            <span class="dot active" onclick="currentSlide(1)" aria-label="Banner 1"></span>
+            <span class="dot" onclick="currentSlide(2)" aria-label="Banner 2"></span>
+        </div>
+    </div>
+
+
+    <div class="main-container">
+        <div class="filter-box">
+            <h3><i class="fas fa-filter" style="margin-right: 6px;"></i>LỌC SẢN PHẨM</h3>
+            <hr class="separator">
+            <button class="clear-filters" onclick="clearAllFilters()">
+                Xóa tất cả bộ lọc
+            </button>
+
+            <ul>
+                <li>
+                    <strong>Hãng Sản Xuất</strong>
+                    <label><input type="checkbox" name="brand" value="apple"> Apple</label>
+                    <label><input type="checkbox" name="brand" value="samsung"> Samsung</label>
+                    <label><input type="checkbox" name="brand" value="nokia"> Nokia</label>
+                    <label><input type="checkbox" name="brand" value="xiaomi"> Xiaomi</label>
+                    <label><input type="checkbox" name="brand" value="oppo"> Oppo</label>
+                </li>
+
+                <li>
+                    <strong>Hệ Điều Hành</strong>
+                    <label><input type="checkbox" name="os" value="ios"> iOS</label>
+                    <label><input type="checkbox" name="os" value="android"> Android</label>
+                    <label><input type="checkbox" name="os" value="windows"> Windows Phone</label>
+                </li>
+
+                <li>
+                    <strong>Dung Lượng Lưu Trữ</strong>
+                    <label><input type="checkbox" name="storage" value="64gb"> 64GB</label>
+                    <label><input type="checkbox" name="storage" value="128gb"> 128GB</label>
+                    <label><input type="checkbox" name="storage" value="256gb"> 256GB</label>
+                    <label><input type="checkbox" name="storage" value="512gb"> 512GB</label>
+                </li>
+
+                <li>
+                    <strong>Dung Lượng RAM</strong>
+                    <label><input type="checkbox" name="ram" value="4gb"> 4GB</label>
+                    <label><input type="checkbox" name="ram" value="8gb"> 8GB</label>
+                    <label><input type="checkbox" name="ram" value="12gb"> 12GB</label>
+                    <label><input type="checkbox" name="ram" value="16gb"> 16GB</label>
+                </li>
+            </ul>
+        </div>
+
+        <article>
+            <h2>DANH MỤC SẢN PHẨM</h2>
+
+            <div class="sort-box">
+                <div class="product-count" style="margin-bottom: 10px; color: #666;">Hiển thị 24 sản phẩm</div>
+                <select name="" id="">
+                    <option value="">Sắp xếp theo</option>
+                    <option value="Giá Thấp Đến Cao">Giá Thấp Đến Cao</option>
+                    <option value="Giá Cao Đến Thấp">Giá Cao Đến Thấp</option>
+                </select>
+            </div>
+
+            <div class="products-container">
+
+                <!-- iPhone 12 Pro Max -->
+<div class="product"
+     data-brand="apple"
+     data-os="ios"
+     data-storage="256gb"
+     data-ram="8gb"
+     data-price="14990000"
+     onclick="openDetails('Iphone_12ProMax.html')">
+  <img src="image/products/Iphone/Iphone_12ProMax.png" alt="">
+  <button class="add-to-cart">
+      <img src="image/add-to-cart-32px.png" alt="">
+  </button>
+  <p class="price">14,990,000 VND</p>
+  <p class="product-name">IPHONE 12 PRO MAX</p>
+</div>
+
+<!-- iPhone 13 Pro Max -->
+<div class="product"
+     data-brand="apple"
+     data-os="ios"
+     data-storage="512gb"
+     data-ram="8gb"
+     data-price="15990000"
+     onclick="openDetails('Iphone_13ProMax.html')">
+  <img src="image/products/Iphone/Iphone_13ProMax.png" alt="">
+  <button class="add-to-cart">
+      <img src="image/add-to-cart-32px.png" alt="">
+  </button>
+  <p class="price">15,990,000 VND</p>
+  <p class="product-name">IPHONE 13 PRO MAX</p>
+</div>
+
+<!-- iPhone 14 Pro Max -->
+<div class="product"
+     data-brand="apple"
+     data-os="ios"
+     data-storage="256gb"
+     data-ram="8gb"
+     data-price="16990000"
+     onclick="openDetails('Iphone_14ProMax.html')">
+  <img src="image/products/Iphone/Iphone_14ProMax.png" alt="">
+  <button class="add-to-cart">
+      <img src="image/add-to-cart-32px.png" alt="">
+  </button>
+  <p class="price">16,990,000 VND</p>
+  <p class="product-name">IPHONE 14 PRO MAX</p>
+</div>
+
+<!-- iPhone 15 Pro Max -->
+<div class="product"
+     data-brand="apple"
+     data-os="ios"
+     data-storage="512gb"
+     data-ram="8gb"
+     data-price="20990000"
+     onclick="openDetails('Iphone_15ProMax.html')">
+  <img src="image/products/Iphone/Iphone_15ProMax.jpg" alt="">
+  <button class="add-to-cart">
+      <img src="image/add-to-cart-32px.png" alt="">
+  </button>
+  <p class="price">20,990,000 VND</p>
+  <p class="product-name">IPHONE 15 PRO MAX</p>
+</div>
+
+<!-- iPhone 16 Pro Max -->
+<div class="product"
+     data-brand="apple"
+     data-os="ios"
+     data-storage="512gb"
+     data-ram="8gb"
+     data-price="25990000"
+     onclick="openDetails('Iphone_16ProMax.html')">
+  <img src="image/products/Iphone/Iphone_16ProMax.jpg" alt="">
+  <button class="add-to-cart">
+      <img src="image/add-to-cart-32px.png" alt="">
+  </button>
+  <p class="price">25,990,000 VND</p>
+  <p class="product-name">IPHONE 16 PRO MAX</p>
+</div>
+
+                <div class="product"
+     data-brand="nokia"
+     data-os="android"
+     data-storage="64gb"
+     data-ram="4gb"
+     data-price="10990000"
+     onclick="openDetails('Nokia_105_4G_Pro.html')">
+  <img src="image/products/Nokia/Nokia_105_4G_Pro.png" alt="">
+  <button class="add-to-cart">
+      <img src="image/add-to-cart-32px.png" alt="">
+  </button>
+  <p class="price">10,990,000 VND</p>
+  <p class="product-name">NOKIA 105 4G PRO</p>
+</div>
+
+                <div class="product" data-brand="nokia" data-os="android" data-storage="64gb" data-ram="4gb"
+     data-price="12590000" onclick="openDetails('nokia110_4GPro.html')">
+  <img src="image/products/Nokia/Nokia_110_4G_Pro.png" alt="">
+  <button class="add-to-cart"><img src="image/add-to-cart-32px.png" alt=""></button>
+  <p class="price">1,390,000 VND</p>
+  <p class="product-name">NOKIA 110 4G PRO</p>
+</div>
+
+<div class="product" data-brand="nokia" data-os="android" data-storage="64gb" data-ram="4gb"
+     data-price="9790000" onclick="openDetails('nokia220_4GPro.html')">
+  <img src="image/products/Nokia/Nokia_220_4G.png" alt="">
+  <button class="add-to-cart"><img src="image/add-to-cart-32px.png" alt=""></button>
+  <p class="price">1,690,000 VND</p>
+  <p class="product-name">NOKIA 220 4G</p>
+</div>
+
+<div class="product" data-brand="nokia" data-os="android" data-storage="64gb" data-ram="4gb"
+     data-price="8790000" onclick="openDetails('nokia3210_4GPro.html')">
+  <img src="image/products/Nokia/Nokia_3210_4G.png" alt="">
+  <button class="add-to-cart"><img src="image/add-to-cart-32px.png" alt=""></button>
+  <p class="price">1,990,000 VND</p>
+  <p class="product-name">NOKIA 3210 4G</p>
+</div>
+
+<!-- ====== OPPO ====== -->
+<div class="product" data-brand="oppo" data-os="android" data-storage="256gb" data-ram="12gb"
+     data-price="16790000" onclick="openDetails('oppo_find3N.html')">
+  <img src="image/products/Oppo/OPPO_Find_N3_Flip.png" alt="">
+  <button class="add-to-cart"><img src="image/add-to-cart-32px.png" alt=""></button>
+  <p class="price">9,990,000 VND</p>
+  <p class="product-name">OPPO FIND N3</p>
+</div>
+
+<div class="product" data-brand="oppo" data-os="android" data-storage="256gb" data-ram="12gb"
+     data-price="16790000" onclick="openDetails('oppo_find3NFlip.html')">
+  <img src="image/products/Oppo/OPPO_Find_N3_Flip.png" alt="">
+  <button class="add-to-cart"><img src="image/add-to-cart-32px.png" alt=""></button>
+  <p class="price">12,990,000 VND</p>
+  <p class="product-name">OPPO FIND N3 FLIP</p>
+</div>
+
+<div class="product" data-brand="oppo" data-os="android" data-storage="128gb" data-ram="8gb"
+     data-price="10990000" onclick="openDetails('oppo_findN5.html')">
+  <img src="image/products/Oppo/OPPO_FIND_N5.png" alt="">
+  <button class="add-to-cart"><img src="image/add-to-cart-32px.png" alt=""></button>
+  <p class="price">16,990,000 VND</p>
+  <p class="product-name">OPPO FIND N5</p>
+</div>
+
+<div class="product" data-brand="oppo" data-os="android" data-storage="256gb" data-ram="12gb"
+     data-price="16790000" onclick="openDetails('oppo_Reno10Pro5G.html')">
+  <img src="image/products/Oppo/OPPO_Reno10_Pro+_5G.png" alt="">
+  <button class="add-to-cart"><img src="image/add-to-cart-32px.png" alt=""></button>
+  <p class="price">13,990,000 VND</p>
+  <p class="product-name">OPPO RENO 10 PRO 5G</p>
+</div>
+
+<div class="product" data-brand="oppo" data-os="android" data-storage="128gb" data-ram="8gb"
+     data-price="12590000" onclick="openDetails('oppo_Reno125G.html')">
+  <img src="image/products/Oppo/OPPO_Reno12_5G.png" alt="">
+  <button class="add-to-cart"><img src="image/add-to-cart-32px.png" alt=""></button>
+  <p class="price">11,990,000 VND</p>
+  <p class="product-name">OPPO RENO 12 5G</p>
+</div>
+
+<!-- ====== SAMSUNG ====== -->
+<div class="product" data-brand="samsung" data-os="android" data-storage="128gb" data-ram="8gb"
+     data-price="16790000" onclick="openDetails('samsungGalaxy_A365G.html')">
+  <img src="image/products/Samsung/Samsung_Galaxy_A36_5G.png" alt="">
+  <button class="add-to-cart"><img src="image/add-to-cart-32px.png" alt=""></button>
+  <p class="price">9,490,000 VND</p>
+  <p class="product-name">SAMSUNG GALAXY A36 5G</p>
+</div>
+
+<div class="product" data-brand="samsung" data-os="android" data-storage="128gb" data-ram="8gb"
+     data-price="12590000" onclick="openDetails('samsungGalaxy_M555G.html')">
+  <img src="image/products/Samsung/Samsung_Galaxy_M55_5G.png" alt="">
+  <button class="add-to-cart"><img src="image/add-to-cart-32px.png" alt=""></button>
+  <p class="price">10,490,000 VND</p>
+  <p class="product-name">SAMSUNG GALAXY M55 5G</p>
+</div>
+
+<div class="product" data-brand="samsung" data-os="android" data-storage="512gb" data-ram="16gb"
+     data-price="16790000" onclick="openDetails('samsungGalaxy_S25Utral.html')">
+  <img src="image/products/Samsung/Samsung_Galaxy_S25_ultra.png" alt="">
+  <button class="add-to-cart"><img src="image/add-to-cart-32px.png" alt=""></button>
+  <p class="price">28,990,000 VND</p>
+  <p class="product-name">SAMSUNG GALAXY S25 ULTRA</p>
+</div>
+
+<div class="product" data-brand="samsung" data-os="android" data-storage="256gb" data-ram="12gb"
+     data-price="18000000" onclick="openDetails('samsungGalaxy_Zflip6.html')">
+  <img src="image/products/Samsung/Samsung_Galaxy_ZFlip6.png" alt="">
+  <button class="add-to-cart"><img src="image/add-to-cart-32px.png" alt=""></button>
+  <p class="price">24,990,000 VND</p>
+  <p class="product-name">SAMSUNG GALAXY ZFLIP 6</p>
+</div>
+
+<div class="product" data-brand="samsung" data-os="android" data-storage="512gb" data-ram="16gb"
+     data-price="20000000" onclick="openDetails('samsungGalaxy_Zflop6.html')">
+  <img src="image/products/Samsung/Samsung_Galaxy_ZFold6.png" alt="">
+  <button class="add-to-cart"><img src="image/add-to-cart-32px.png" alt=""></button>
+  <p class="price">9,990,000 VND</p>
+  <p class="product-name">SAMSUNG GALAXY ZFOLD 6</p>
+</div>
+
+<!-- ====== XIAOMI ====== -->
+<div class="product" data-brand="xiaomi" data-os="android" data-storage="256gb" data-ram="12gb"
+     data-price="22000000" onclick="openDetails('xiaomi 14T Pro.html')">
+  <img src="image/products/Xiaomi/Xiaomi_14T_Pro.png" alt="">
+  <button class="add-to-cart"><img src="image/add-to-cart-32px.png" alt=""></button>
+  <p class="price">26,990,000 VND</p>
+  <p class="product-name">XIAOMI 14T PRO</p>
+</div>
+
+<div class="product" data-brand="xiaomi" data-os="android" data-storage="128gb" data-ram="8gb"
+     data-price="12000000" onclick="openDetails('xiaomi_15_5G.html')">
+  <img src="image/products/Xiaomi/Xiaomi_15_5G.png" alt="">
+  <button class="add-to-cart"><img src="image/add-to-cart-32px.png" alt=""></button>
+  <p class="price">28,990,000 VND</p>
+  <p class="product-name">XIAOMI 15 5G</p>
+</div>
+
+<div class="product" data-brand="xiaomi" data-os="android" data-storage="512gb" data-ram="16gb"
+     data-price="9000000" onclick="openDetails('xiaomi_15utra_5g.html')">
+  <img src="image/products/Xiaomi/Xiaomi_15Ultra_5G.png" alt="">
+  <button class="add-to-cart"><img src="image/add-to-cart-32px.png" alt=""></button>
+  <p class="price">36,990,000 VND</p>
+  <p class="product-name">XIAOMI 15 ULTRA 5G</p>
+</div>
+
+<div class="product" data-brand="xiaomi" data-os="android" data-storage="128gb" data-ram="8gb"
+     data-price="15900000" onclick="openDetails('xiaomiredmi_13pro.html')">
+  <img src="image/products/Xiaomi/Xiaomi_Redmi_Note_13Pro.png" alt="">
+  <button class="add-to-cart"><img src="image/add-to-cart-32px.png" alt=""></button>
+  <p class="price">8,990,000 VND</p>
+  <p class="product-name">XIAOMI REDMI NOTE 13 PRO</p>
+</div>
+            </div>
+        </article>
+    </div>
+
+    <div id="added-popup">Thêm vào giỏ hàng thành công</div>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Thông tin liên hệ</h3>
+                    <div class="contact-info">
+                        <i>📍</i>
+                        <span>123 Đường cách mạng tháng 8 Đà Nẵng</span>
+                    </div>
+                    <div class="contact-info">
+                        <i>📞</i>
+                        <span>0932 232 323</span>
+                    </div>
+                    <div class="contact-info">
+                        <i>✉️</i>
+                        <span>@javascript.com</span>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="#" title="Facebook">ⓕ</a>
+                        <a href="#" title="Instagram">🅾</a>
+                        <a href="#" title="Twitter">𝕏</a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Liên kết hữu ích</h3>
+                    <ul>
+                        <li><a href="#">Về chúng tôi</a></li>
+                        <li><a href="#">Sản phẩm</a></li>
+                        <li><a href="#">Dịch vụ</a></li>
+                        <li><a href="#">Tin tức</a></li>
+                        <li><a href="#">Liên hệ</a></li>
+                        <li><a href="#">Chính sách bảo mật</a></li>
+                        <li><a href="#">Điều khoản sử dụng</a></li>
+                        <li><a href="#">Hướng dẫn mua hàng</a></li>
+                        <li><a href="#">Chính sách đổi trả</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Ưu đãi đặc biệt</h3>
+
+                    <div class="feature-box">
+                        <h4>Miễn phí giao hàng</h4>
+                        <p>Giao hàng miễn phí toàn quốc cho đơn hàng từ 500.000đ</p>
+                    </div>
+
+                    <div class="feature-box">
+                        <h4>Thanh toán nhanh chóng</h4>
+                        <p>Chúng tôi sử dụng nhiều hình thức thanh toán để hổ trợ cho người mua</p>
+                    </div>
+
+                    <div class="feature-box">
+                        <h4>Hỗ trợ 24/7</h4>
+                        <p>Đội ngũ tư vấn hỗ trợ khách hàng 24/7</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="copyright">
+                    © 2025 By MobieShop Group
+                </div>
+
+                <div class="payment-methods">
+                    <div class="payment-icon visa">VISA</div>
+                    <div class="payment-icon mastercard">MC</div>
+                    <div class="payment-icon momo">MOMO</div>
+                    <div class="payment-icon zalo">ZALO</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+
+
+    <script src="js/main.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/register.js"></script>
+</body>
+
+</html>

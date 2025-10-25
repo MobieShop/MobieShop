@@ -1,0 +1,173 @@
+
+
+/* ===== 🧾 FORM ĐĂNG NHẬP TRUYỀN THỐNG (ngoài popup) ===== */
+.login-input {
+  width: 400px;
+  margin: 50px auto;
+  padding: 25px 30px;
+  border: 1px solid #ffa94d;
+  border-radius: 12px;
+  background-color: rgba(193, 156, 123, 0.45);
+  text-align: left;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.login-input input {
+  width: 100%;
+  padding: 10px 12px;
+  margin: 8px 0 15px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+  outline: none;
+  transition: 0.2s;
+}
+
+.login-input input:focus {
+  border-color: #ff6b00;
+  box-shadow: 0 0 4px rgba(236, 72, 12, 0.5);
+}
+
+.login-input label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* ===== 🔲 NHỚ MẬT KHẨU ===== */
+.remember-box {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+/* ===== 🔘 NÚT CHÍNH ===== */
+/* Nút đăng nhập popup ngắn hơn và căn giữa */
+#login-popup .btn-login {
+  width: 100%;                /* giảm chiều rộng còn 60% */
+  display: block;            /* để margin auto căn giữa */
+  margin: 15px auto 0 auto;  /* căn giữa theo chiều ngang và cách trên 15px */
+  height: 45px;              /* giảm chiều cao nếu muốn */
+  border-radius: 25px;
+  border: none;
+  background-color: #ec480c;
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+#login-popup .btn-login:hover {
+  background-color: #cf3d09;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+/* ===== 🔵 NÚT ĐĂNG KÝ ===== */
+.btn-register {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 32px;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 10px auto;
+  display: inline-block;
+}
+
+.btn-register:hover {
+  background: #0056b3;
+}
+
+/* ===== 🌙 POPUP ĐĂNG NHẬP ===== */
+#login-popup {
+  display: none; /* Ẩn mặc định */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.45); /* nền mờ */
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+#login-popup.active {
+  display: flex;
+  animation: fadeIn 0.3s ease;
+}
+
+/* ===== 🧩 KHUNG NỘI DUNG POPUP ===== */
+#login-popup .popup-content {
+  background: #fff;
+  padding: 35px 40px;
+  border-radius: 14px;
+  width: 420px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+  text-align: left;
+  position: relative;
+  animation: scaleIn 0.3s ease;
+}
+
+/* Tiêu đề popup */
+#login-popup .popup-content h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #ec480c;
+}
+
+/* ===== ❌ NÚT ĐÓNG POPUP ===== */
+#login-popup .close-btn {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  font-size: 26px;
+  color: #666;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+#login-popup .close-btn:hover {
+  color: #000;
+}
+
+/* ===== CÁC Ô NHẬP TRONG POPUP ===== */
+#login-popup input[type="text"],
+#login-popup input[type="password"] {
+  width: 93%; /* hoặc width: 300px; */
+  padding: 10px 12px;
+  margin: 8px 0 18px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+#login-popup input:focus {
+  border-color: #ff6b00;
+  box-shadow: 0 0 4px rgba(236, 72, 12, 0.5);
+}
+
+/* ===== ✨ HIỆU ỨNG MỞ POPUP ===== */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0.7;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

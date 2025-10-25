@@ -1,0 +1,104 @@
+/* ✅ Style chỉ áp dụng cho popup */
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 3000;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Nội dung trong popup */
+.popup-content {
+  background: rgba(239, 223, 191, 0.95);
+  padding: 20px 30px;
+  border-radius: 12px;
+  width: 450px;
+  max-height: 95vh;
+  overflow-y: auto;
+  position: relative;
+  animation: popupFadeIn 0.3s ease;
+  border: 2px solid orangered;
+}
+
+/* Hiệu ứng */
+@keyframes popupFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Nút đóng (X) */
+.popup .close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #333;
+}
+
+/* Vùng nhập thông tin */
+.popup .information-input {
+  width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid orangered;
+  border-radius: 10px;
+  font-family: sans-serif;
+  font-size: small;
+  line-height: 200%;
+  background-color: #c19c7b75;
+  text-align: left;
+}
+
+/* Các input trong popup */
+.popup input,
+.popup select {
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+/* Giới tính */
+.popup input[type="radio"] {
+  width: auto;
+}
+
+/* Label trong popup */
+.popup label {
+  display: block;
+  margin-top: 8px;
+}
+
+/* Nút trong popup */
+.popup button {
+  background-color: rgba(236, 72, 12, 0.925);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 28px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin: 8px;
+}
+
+.popup button:hover {
+  background-color: orangered;
+}
+
+/* Nhóm nút */
+.popup .btn-group {
+  text-align: center;
+  margin-top: 20px;
+}

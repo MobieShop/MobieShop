@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bảo hành - Relax Cellphone</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/index.css">
+  <style>
+    
+    .warranty-section {
+      padding: 50px 70px;
+      background-color: #f8f9fa;
+      text-align: center;
+    }
+
+    .warranty-section h1 {
+      color: #007bff;
+      font-size: 32px;
+      margin-bottom: 25px;
+      text-transform: uppercase;
+    }
+
+    .warranty-info {
+      background: #fff;
+      border-radius: 12px;
+      padding: 25px 30px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      margin-bottom: 40px;
+      text-align: left;
+      line-height: 1.6;
+    }
+
+    .warranty-info h2 {
+      font-size: 20px;
+      color: #007bff;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      border-left: 4px solid #007bff;
+      padding-left: 10px;
+    }
+
+    .warranty-info ul {
+      margin-left: 20px;
+    }
+
+    .warranty-form {
+      background: #fff;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .warranty-form h2 {
+      font-size: 20px;
+      color: #007bff;
+      text-transform: uppercase;
+      border-left: 4px solid #007bff;
+      padding-left: 10px;
+      margin-bottom: 20px;
+    }
+
+    .warranty-form form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .warranty-form input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: border-color 0.3s;
+    }
+
+    .warranty-form input:focus {
+      border-color: #007bff;
+      outline: none;
+    }
+
+    .warranty-form button {
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 12px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .warranty-form button:hover {
+      background: #0056b3;
+    }
+
+    .result-box {
+      margin-top: 20px;
+      padding: 15px;
+      background: #e9f5ff;
+      border-left: 4px solid #007bff;
+      border-radius: 6px;
+      display: none;
+    }
+
+    .result-box.success { color: #007bff; }
+    .result-box.error { color: red; }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <img class="header-logo" src="image/Mobie.png" alt="">
+    <div class="search-bar">
+      <i class="fas fa-search"></i>
+      <input type="search" id="search-box" placeholder="Nhập tên sản phẩm cần tìm">
+      <div class="search-dropdown" id="search-dropdown"></div>
+    </div>
+
+      <button class="btn-user" onclick="onUserButton()">
+            <img id="login-icon" src="image/user.png" alt="">
+        </button>
+
+        <button class="btn-cart" onclick="openCart()">
+            <img src="image/shopping-cart.png">
+            <span id="cart-count">(0)</span>
+        </button>
+  </header>
+
+  <!-- Navigation -->
+  <nav class="vmenu">
+    <ul>
+      <li><a href="index.html">TRANG CHỦ</a></li>
+      <li><a href="gioithieu.html">GIỚI THIỆU</a></li>
+      <li><a class="active" href="baohanh.html">BẢO HÀNH</a></li>
+      <li><a href="lienhe.html">LIÊN HỆ</a></li>
+    </ul>
+  </nav>
+
+  <!-- Nội dung bảo hành -->
+  <section class="warranty-section">
+    <h1>Tra cứu bảo hành</h1>
+
+    <div class="warranty-info">
+      <h2>Chính sách bảo hành</h2><hr>
+      <ul>
+        <li>Thời gian bảo hành: 12 tháng kể từ ngày mua hàng.</li>
+        <li>Sản phẩm được bảo hành miễn phí nếu lỗi do nhà sản xuất.</li>
+        <li>Không bảo hành nếu sản phẩm bị va đập, vô nước, cháy nổ hoặc can thiệp phần cứng.</li>
+        <li>Khách hàng cần mang hóa đơn hoặc phiếu bảo hành khi đến trung tâm.</li>
+      </ul>
+    </div>
+
+    <div class="warranty-form">
+      <h2>Nhập thông tin tra cứu</h2>
+      <form id="lookupForm">
+        <input type="text" id="imei" placeholder="Nhập mã IMEI hoặc Mã đơn hàng..." required>
+        <button type="submit">Tra cứu</button>
+      </form>
+
+      <div id="resultBox" class="result-box"></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Thông tin liên hệ</h3>
+                    <div class="contact-info">
+                        <i>📍</i>
+                        <span>123 Đường cách mạng tháng 8 Đà Nẵng</span>
+                    </div>
+                    <div class="contact-info">
+                        <i>📞</i>
+                        <span>0932 232 323</span>
+                    </div>
+                    <div class="contact-info">
+                        <i>✉️</i>
+                        <span>@javascript.com</span>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="#" title="Facebook">ⓕ</a>
+                        <a href="#" title="Instagram">🅾</a>
+                        <a href="#" title="Twitter">𝕏</a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Liên kết hữu ích</h3>
+                    <ul>
+                        <li><a href="#">Về chúng tôi</a></li>
+                        <li><a href="#">Sản phẩm</a></li>
+                        <li><a href="#">Dịch vụ</a></li>
+                        <li><a href="#">Tin tức</a></li>
+                        <li><a href="#">Liên hệ</a></li>
+                        <li><a href="#">Chính sách bảo mật</a></li>
+                        <li><a href="#">Điều khoản sử dụng</a></li>
+                        <li><a href="#">Hướng dẫn mua hàng</a></li>
+                        <li><a href="#">Chính sách đổi trả</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Ưu đãi đặc biệt</h3>
+
+                    <div class="feature-box">
+                        <h4>Miễn phí giao hàng</h4>
+                        <p>Giao hàng miễn phí toàn quốc cho đơn hàng từ 500.000đ</p>
+                    </div>
+
+                    <div class="feature-box">
+                        <h4>Thanh toán nhanh chóng</h4>
+                        <p>Chúng tôi sử dụng nhiều hình thức thanh toán để hổ trợ cho người mua</p>
+                    </div>
+
+                    <div class="feature-box">
+                        <h4>Hỗ trợ 24/7</h4>
+                        <p>Đội ngũ tư vấn hỗ trợ khách hàng 24/7</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="copyright">
+                    © 2025 By MobieShop Group
+                </div>
+
+                <div class="payment-methods">
+                    <div class="payment-icon visa">VISA</div>
+                    <div class="payment-icon mastercard">MC</div>
+                    <div class="payment-icon momo">MOMO</div>
+                    <div class="payment-icon zalo">ZALO</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+  <script>
+    // Giả lập dữ liệu bảo hành
+    const fakeData = {
+      "1234567890": {
+        name: "iPhone 12 Pro Max 128GB",
+        status: "Còn hạn bảo hành",
+        expire: "20/06/2026"
+      },
+      "9876543210": {
+        name: "Samsung Galaxy S22 Ultra",
+        status: "Hết hạn bảo hành",
+        expire: "01/02/2024"
+      }
+    };
+
+    const form = document.getElementById('lookupForm');
+    const resultBox = document.getElementById('resultBox');
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const imei = document.getElementById('imei').value.trim();
+      if (fakeData[imei]) {
+        const data = fakeData[imei];
+        resultBox.className = "result-box success";
+        resultBox.style.display = "block";
+        resultBox.innerHTML = `
+          <strong>Sản phẩm:</strong> ${data.name}<br>
+          <strong>Trạng thái:</strong> ${data.status}<br>
+          <strong>Hạn bảo hành:</strong> ${data.expire}
+        `;
+      } else {
+        resultBox.className = "result-box error";
+        resultBox.style.display = "block";
+        resultBox.innerHTML = "❌ Không tìm thấy thông tin bảo hành cho mã này.";
+      }
+    });
+  </script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/register.css">
+    <title>Đăng Ký</title>
+</head>
+
+<body>
+
+    <div class="main-content">
+        <div class="information-input">
+            <label for="username">Tên đăng nhập:</label>
+            <input type="text" name="username" id="username">
+
+            <label for="password">Mật khẩu:</label>
+            <input type="password" name="password" id="password">
+
+            <label for="password-confirm">Xác nhận mật khẩu:</label>
+            <input type="password" name="password-confirm" id="password-confirm">
+
+            <label for="fullname">Họ và tên:</label>
+            <input type="text" name="fullname" id="fullname">
+
+            <label for="">Giới tính:</label>
+            <label for="gender">
+                <input type="radio" name="gender" value="male">
+                Nam
+            </label>
+            <label for="gender">
+                <input type="radio" name="gender" value="female">
+                Nữ
+            </label>
+            <label for="dob">Ngày sinh:</label>
+            <input type="date" name="dob" id="dob">
+
+            <label for="address">Địa chỉ:</label>
+            <select id="city" name="city">
+                <option value="danang">Đà Nẵng</option>
+                <option value="hanoi">Hà Nội</option>
+                <option value="hcm">TP Hồ Chí Minh</option>
+                <option value="hue">Huế</option>
+                <option value="haiphong">Hải Phòng</option>
+                <option value="cantho">Cần Thơ</option>
+            </select>
+
+            <label for="email">Email:</label>
+            <input type="text" name="email" id="email">
+
+            <label for="phone">Số điện thoại:</label>
+            <input type="text" name="phone" id="phone">
+
+        </div>
+
+        <button class="btn-confirm" onclick="confirmRegister()">Xác Nhận</button>
+        <button class="btn-goback" onclick="goBackToLoginPage()">Quay Lại</button>
+    </div>
+
+    <script src="js/register.js"></script>
+</body>
+
+</html>

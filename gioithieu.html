@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giới thiệu - Relax Cellphone</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/index.css">
+  <style>
+    .about-section {
+      padding: 50px 70px;
+      background-color: #f8f9fa;
+      text-align: center;
+    }
+
+    .about-section h1 {
+      color: #007bff;
+      font-size: 32px;
+      margin-bottom: 25px;
+      text-transform: uppercase;
+    }
+
+    .about-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      padding: 40px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+      text-align: left;
+    }
+
+    .about-text {
+      flex: 1 1 55%;
+      padding-right: 30px;
+    }
+
+    .about-text h2 {
+      color: #007bff;
+      font-size: 24px;
+      margin-bottom: 15px;
+      border-left: 4px solid #007bff;
+      padding-left: 10px;
+      text-transform: uppercase;
+    }
+
+    .about-text p {
+      font-size: 17px;
+      line-height: 1.7;
+      color: #333;
+    }
+
+    .about-image {
+      flex: 1 1 40%;
+      text-align: center;
+    }
+
+    .about-image img {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .mission-section {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      padding: 40px;
+      margin-bottom: 40px;
+      text-align: left;
+    }
+
+    .mission-section h2 {
+      color: #007bff;
+      font-size: 22px;
+      text-transform: uppercase;
+      border-left: 4px solid #007bff;
+      padding-left: 10px;
+      margin-bottom: 15px;
+    }
+
+    .mission-section p {
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .values-section {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      padding: 40px;
+      text-align: left;
+    }
+
+    .values-section h2 {
+      color: #007bff;
+      font-size: 22px;
+      text-transform: uppercase;
+      border-left: 4px solid #007bff;
+      padding-left: 10px;
+      margin-bottom: 20px;
+    }
+
+    .values-section ul {
+      list-style: none;
+      padding-left: 10px;
+      font-size: 17px;
+    }
+
+    .values-section li {
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <img class="header-logo" src="image/Mobie.png" alt="">
+    <div class="search-bar">
+      <i class="fas fa-search"></i>
+      <input type="search" id="search-box" placeholder="Nhập tên sản phẩm cần tìm">
+      <div class="search-dropdown" id="search-dropdown"></div>
+    </div>
+    <button class="btn-user" onclick="onUserButton()">
+            <img id="login-icon" src="image/user.png" alt="">
+        </button>
+
+        <button class="btn-cart" onclick="openCart()">
+            <img src="image/shopping-cart.png">
+            <span id="cart-count">(0)</span>
+        </button>
+  </header>
+
+  <!-- Navigation -->
+  <nav class="vmenu">
+    <ul>
+      <li><a href="index.html">TRANG CHỦ</a></li>
+      <li><a class="active" href="gioithieu.html">GIỚI THIỆU</a></li>
+      <li><a href="baohanh.html">BẢO HÀNH</a></li>
+      <li><a href="lienhe.html">LIÊN HỆ</a></li>
+    </ul>
+  </nav>
+
+  <!-- Nội dung Giới thiệu -->
+  <section class="about-section">
+    <h1>Giới thiệu về Relax Cellphone</h1>
+
+    <div class="about-content">
+      <div class="about-text">
+        <h2>Về chúng tôi</h2>
+        <p>
+          <strong>Relax Cellphone</strong> là hệ thống bán lẻ điện thoại di động, máy tính bảng, phụ kiện chính hãng
+          với giá tốt nhất tại Việt Nam. Chúng tôi tự hào mang đến những sản phẩm công nghệ chất lượng,
+          cùng dịch vụ chăm sóc khách hàng tận tâm và chuyên nghiệp.
+        </p>
+      </div>
+    </div>
+
+    <div class="mission-section">
+      <h2>Sứ mệnh & Tầm nhìn</h2>
+      <p>
+        🌟 <strong>Sứ mệnh:</strong> Mang đến trải nghiệm mua sắm điện thoại thông minh, minh bạch và đáng tin cậy
+        nhất cho mọi khách hàng.  
+        <br><br>
+        🚀 <strong>Tầm nhìn:</strong> Trở thành chuỗi cửa hàng điện thoại hàng đầu Việt Nam,
+        là lựa chọn số 1 của người tiêu dùng về chất lượng và dịch vụ.
+      </p>
+    </div>
+
+    <div class="values-section">
+      <h2>Giá trị cốt lõi</h2>
+      <ul>
+        <li>💎 Sản phẩm chính hãng, rõ ràng nguồn gốc.</li>
+        <li>🤝 Dịch vụ tận tâm, lấy khách hàng làm trung tâm.</li>
+        <li>⚡ Đổi mới và cập nhật xu hướng công nghệ nhanh chóng.</li>
+        <li>🌿 Phát triển bền vững, hướng đến cộng đồng.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Thông tin liên hệ</h3>
+                    <div class="contact-info">
+                        <i>📍</i>
+                        <span>123 Đường cách mạng tháng 8 Đà Nẵng</span>
+                    </div>
+                    <div class="contact-info">
+                        <i>📞</i>
+                        <span>0932 232 323</span>
+                    </div>
+                    <div class="contact-info">
+                        <i>✉️</i>
+                        <span>@javascript.com</span>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="#" title="Facebook">ⓕ</a>
+                        <a href="#" title="Instagram">🅾</a>
+                        <a href="#" title="Twitter">𝕏</a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Liên kết hữu ích</h3>
+                    <ul>
+                        <li><a href="#">Về chúng tôi</a></li>
+                        <li><a href="#">Sản phẩm</a></li>
+                        <li><a href="#">Dịch vụ</a></li>
+                        <li><a href="#">Tin tức</a></li>
+                        <li><a href="#">Liên hệ</a></li>
+                        <li><a href="#">Chính sách bảo mật</a></li>
+                        <li><a href="#">Điều khoản sử dụng</a></li>
+                        <li><a href="#">Hướng dẫn mua hàng</a></li>
+                        <li><a href="#">Chính sách đổi trả</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Ưu đãi đặc biệt</h3>
+
+                    <div class="feature-box">
+                        <h4>Miễn phí giao hàng</h4>
+                        <p>Giao hàng miễn phí toàn quốc cho đơn hàng từ 500.000đ</p>
+                    </div>
+
+                    <div class="feature-box">
+                        <h4>Thanh toán nhanh chóng</h4>
+                        <p>Chúng tôi sử dụng nhiều hình thức thanh toán để hổ trợ cho người mua</p>
+                    </div>
+
+                    <div class="feature-box">
+                        <h4>Hỗ trợ 24/7</h4>
+                        <p>Đội ngũ tư vấn hỗ trợ khách hàng 24/7</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="copyright">
+                    © 2025 By MobieShop Group
+                </div>
+
+                <div class="payment-methods">
+                    <div class="payment-icon visa">VISA</div>
+                    <div class="payment-icon mastercard">MC</div>
+                    <div class="payment-icon momo">MOMO</div>
+                    <div class="payment-icon zalo">ZALO</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+</html>

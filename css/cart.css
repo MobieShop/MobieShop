@@ -1,0 +1,50 @@
+body {
+    text-align: center;
+    justify-items: center;
+    line-height: 200%;
+    background-color: rgba(239, 223, 191, 0.359);
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+}
+
+#products-table {
+    width: 500px;
+    padding: 20px;
+    border: 1px solid orangered;
+    border-collapse: collapse;
+}
+
+#products-table img {
+    width: 50px;
+}
+
+th {
+    padding: 10px;
+    border: 1px solid orangered;
+}
+
+td {
+    padding: 10px;
+    border: 1px solid orangered;
+}
+
+p {
+    font-size: larger;
+}
+
+span {
+    font-weight: bolder;
+    color: green
+}
+
+button {
+    background: #df314e;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 12px 32px;
+    font-size: 1.0rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin: 10px;
+}

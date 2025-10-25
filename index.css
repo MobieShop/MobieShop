@@ -1,0 +1,418 @@
+/* index.css - Dùng chung với các trang không ảnh */
+
+/* Reset cơ bản */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: auto 100px;
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+    background-color: #fdf6f0;
+    color: #333;
+}
+
+/* Header */
+header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 10px 10px 0 0;
+    background-color: rgb(241, 89, 43);
+    min-height: 110px;
+    padding: 20px;
+    gap: 15px;
+}
+
+.header-logo {
+    width: 150px;
+}
+
+button {
+    cursor: pointer;
+}
+
+.btn-user {
+    display: flex;
+    position: relative;
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    border: none;
+    color: white;
+    right: 20px;
+    margin-left: auto;
+    padding: 0;
+}
+
+.btn-user:hover {
+    scale: 1.2;
+}
+
+.btn-cart {
+    position: fixed;
+    bottom: 90px;
+    right: 5px;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 60px;
+    padding: 0 15px;
+    border-radius: 20px;
+    border: none;
+    background-color: rgb(241, 94, 36);
+    color: white;
+    font-size: 15px;
+    transition: transform 0.3s ease;
+}
+
+.btn-cart:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(85, 58, 48, 0.623);
+}
+
+.btn-cart img {
+    height: 40px;
+    width: 40px;
+}
+
+/* Search Bar */
+.search-bar {
+    flex: 1;
+    min-width: 250px;
+    max-width: 600px;
+    position: relative;
+    margin: 0 auto;
+    left: 50px;
+}
+
+.search-bar input {
+    width: 100%;
+    height: 45px;
+    padding: 10px 10px 10px 40px;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+}
+
+.search-bar i {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    color: #888;
+    font-size: 16px;
+}
+
+/* Navigation */
+.vmenu {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(255, 147, 79);
+    border-radius: 0 0 10px 10px;
+}
+
+.vmenu>ul {
+    list-style: none;
+    width: 70%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.vmenu>ul>li {
+    flex: 1;
+    display: inline-block;
+    text-align: center;
+    padding: 10px 30px;
+    position: relative;
+}
+
+.vmenu>ul>li:hover {
+    background-color: rgb(221, 104, 58);
+}
+
+.vmenu>ul>li>a {
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.vmenu>ul>li>a:hover {
+    transform: scaleX(1.1);
+    transform-origin: top;
+    transition: transform 0.2s ease-in-out;
+}
+
+/* Main content sections */
+/* Container chính cho trang giới thiệu */
+main.content {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 30px 40px;
+    background-color: #fff3f0; /* nền sáng hơn nhưng vẫn hợp tông */
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(218, 70, 17, 0.2);
+    line-height: 1.7;
+}
+
+/* Tiêu đề chính */
+main.content h1 {
+    color: rgb(231, 36, 2);
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    border-left: 6px solid rgb(241, 94, 36);
+    padding-left: 12px;
+}
+
+/* Tiêu đề phụ */
+main.content h2 {
+    color: rgb(231, 36, 2);
+    font-size: 1.6rem;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    border-left: 4px solid rgb(241, 94, 36);
+    padding-left: 10px;
+}
+
+/* Đoạn văn */
+main.content p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+/* List */
+main.content ul {
+    margin-left: 25px;
+    margin-bottom: 20px;
+}
+
+main.content li {
+    margin-bottom: 10px;
+}
+
+/* Button hoặc link CTA */
+main.content .btn {
+    display: inline-block;
+    background-color: rgb(241, 94, 36);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+main.content .btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(218, 70, 17, 0.5);
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    main.content {
+        padding: 20px;
+        margin: 20px 10px;
+    }
+    main.content h1 {
+        font-size: 1.8rem;
+    }
+    main.content h2 {
+        font-size: 1.4rem;
+    }
+}
+
+
+/* Forms */
+form input[type="text"],
+form input[type="email"],
+form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    border: 1px solid #f05a28;
+    font-size: 14px;
+}
+
+form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+form button {
+    background-color: rgb(241, 94, 36);
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+form button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(218, 70, 17, 0.5);
+}
+
+/* Call-to-action links */
+main.content .btn {
+    display: inline-block;
+    background-color: rgb(241, 94, 36);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+main.content .btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(218, 70, 17, 0.5);
+}
+
+/* Footer */
+footer.footer {
+    background: rgb(241, 89, 43);
+    color: white;
+    padding: 40px 0 20px;
+    border-radius: 10px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+footer.footer .footer-container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+footer.footer .footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 30px;
+}
+
+footer.footer .footer-section h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+footer.footer .footer-section ul li {
+    margin-bottom: 12px;
+    font-size: 14px;
+}
+
+footer.footer .footer-section ul li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer.footer .footer-section ul li a:hover {
+    color: #f39c12;
+}
+
+footer.footer .contact-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+footer.footer .contact-info i {
+    width: 20px;
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+footer.footer .social-links {
+    display: flex;
+    font-size: 25px;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+footer.footer .social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+footer.footer .social-links a:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+footer.footer .feature-box {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    backdrop-filter: blur(10px);
+}
+
+footer.footer .feature-box h4 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+footer.footer .feature-box p {
+    font-size: 14px;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+footer.footer .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    body {
+        margin: 0 10px;
+    }
+    header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .search-bar {
+        width: 100%;
+        margin-top: 10px;
+    }
+    .btn-user,
+    .btn-cart {
+        align-self: flex-end;
+        margin-top: 10px;
+    }
+    .vmenu {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .vmenu>ul>li {
+        text-align: left;
+        padding: 10px 15px;
+    }
+}

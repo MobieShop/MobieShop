@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tài khoản cá nhân</title>
+    <link rel="stylesheet" href="css/account.css">
+</head>
+
+<body>
+    <h3 class="heading">THÔNG TIN CÁ NHÂN</h3>
+
+    <div class="information">
+        <p>Tên tài khoản: <span id="username"></span></p>
+        <hr>
+        <p>Họ và tên: <span id="fullname"></span></p>
+        <hr>
+        <p>Giới tính: <span id="gender"></span></p>
+        <hr>
+        <p>Ngày sinh: <span id="dob"></span></p>
+        <hr>
+        <p>Địa chỉ: <span id="address"></span></p>
+        <hr>
+        <p>Email: <span id="email"></span></p>
+        <hr>
+        <p>Số điện thoại: <span id="phone"></span></p>
+    </div>
+
+    <div class="btn-group">
+        <button id="edit-btn" onclick="onEditButton()">Sửa Thông Tin</button>
+        <button id="logout-btn" onclick="onLogoutButton()">Đăng Xuất</button>
+    </div>
+
+    <!-- 🔹 Popup sửa thông tin -->
+    <!-- 🔹 Popup sửa thông tin -->
+<div id="edit-popup" class="popup">
+  <div class="popup-content">
+    <h3>Sửa thông tin cá nhân</h3>
+
+    <label>Họ và tên:</label>
+    <input type="text" id="edit-fullname" class="popup-input">
+
+    <div class="gender-row">
+  <label class="gender-label">Giới tính:</label>
+  <div class="gender-options">
+    <label>
+      <input type="radio" id="gender-male" name="gender" value="male">
+      <span>Nam</span>
+    </label>
+    <label>
+      <input type="radio" id="gender-female" name="gender" value="female">
+      <span>Nữ</span>
+    </label>
+  </div>
+</div>
+
+
+
+    <label>Ngày sinh:</label>
+    <input type="date" id="edit-dob" class="popup-input">
+
+    <label>Địa chỉ:</label>
+    <select id="edit-address" class="popup-input">
+      <option value="">-- Chọn địa chỉ --</option>
+      <option value="Hà Nội">Hà Nội</option>
+      <option value="TP.HCM">TP. Hồ Chí Minh</option>
+      <option value="Đà Nẵng">Đà Nẵng</option>
+      <option value="Cần Thơ">Cần Thơ</option>
+      <option value="Hải Phòng">Hải Phòng</option>
+      <option value="Huế">Huế</option>
+      <option value="Nghệ An">Nghệ An</option>
+      <option value="Hà Tĩnh">Hà Tĩnh</option>
+      <option value="Bình Dương">Bình Dương</option>
+      <option value="Đồng Nai">Đồng Nai</option>
+    </select>
+
+    <label>Email:</label>
+    <input type="email" id="edit-email" class="popup-input">
+
+    <label>Số điện thoại:</label>
+    <input type="text" id="edit-phone" class="popup-input">
+
+    <div class="popup-buttons">
+      <button onclick="saveChanges()" class="popup-btn">Lưu</button>
+      <button onclick="closeEditPopup()" class="popup-btn cancel-btn">Hủy</button>
+    </div>
+  </div>
+</div>
+
+
+    <script src="js/account.js"></script>
+</body>
+
+</html>
